@@ -4,8 +4,8 @@ import Project from '../models/project.js'
 export const createProject = async (req, res) => {
     try {
 
-        const project = await new Project(req.body);
-        project.save();
+        const project = new Project(req.body);
+        await project.save();
 
         res.status(200).json({message: "Project has been added."});
         

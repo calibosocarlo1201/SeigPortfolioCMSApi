@@ -11,7 +11,7 @@ export const expCreate =  async (req, res) => {
         // if(expExist) return res.status(500).json({message: `Experience title: ${title} is already exist`});
 
         const newExp = new Experience(req.body);
-        newExp.save();
+        await newExp.save();
 
         res.status(200).json({message: "Experience added successfully!"});
         
