@@ -9,7 +9,11 @@ const projectSchema = new mongoose.Schema({
     skills: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Skill'
+    }],
+    images: [{
+        type: String,
+        default: ["https://liftlearning.com/wp-content/uploads/2020/09/default-image.png"]
     }]
-})
+}, {timestamps: true,});
 
-export default mongoose.model('Project', projectdSchema);
+export default mongoose.model('Project', projectSchema);

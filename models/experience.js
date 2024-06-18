@@ -11,6 +11,6 @@ const experienceSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Skills'
     }
-})
+}, {timestamps: true,})
 
 export default mongoose.model('Experience', experienceSchema);

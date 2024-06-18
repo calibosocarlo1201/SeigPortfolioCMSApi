@@ -3,6 +3,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import skillRoute from './routes/skillRoutes.js'
 import expRoute from './routes/experienceRoute.js'
+import projectRoute from './routes/projectRoute.js'
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -24,3 +25,4 @@ app.listen(3000, () => {
 
 app.use("/api/skill", skillRoute);
 app.use("/api/experience", expRoute);
+app.use("/api/projects", projectRoute);

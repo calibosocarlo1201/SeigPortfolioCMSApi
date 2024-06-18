@@ -6,6 +6,6 @@ const SkillSchema = new mongoose.Schema({
         required: true,
         unique: true
     }
-});
+}, {timestamps: true,});
 
 export default mongoose.model('Skill', SkillSchema);
