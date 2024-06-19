@@ -6,6 +6,7 @@ import expRoute from './routes/experienceRoute.js'
 import projectRoute from './routes/projectRoute.js'
 import userRoute from './routes/userRoute.js'
 import dotenv from 'dotenv'
+import cookieParser from 'cookie-parser'
 dotenv.config()
 
 const app = express();
@@ -18,6 +19,7 @@ mongoose.connect(process.env.MONGO).then(() => {
 });
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000!!");
