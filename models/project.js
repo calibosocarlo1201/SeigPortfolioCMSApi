@@ -12,8 +12,11 @@ const projectSchema = new mongoose.Schema({
     }],
     images: [{
         type: String,
-        default: ["https://liftlearning.com/wp-content/uploads/2020/09/default-image.png"]
-    }]
+    }],
+    thumbnailImage: {
+        type: String,
+        default: "https://liftlearning.com/wp-content/uploads/2020/09/default-image.png"
+    }
 }, {timestamps: true,});
 
 export default mongoose.model('Project', projectSchema);

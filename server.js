@@ -7,10 +7,17 @@ import projectRoute from './routes/projectRoute.js'
 import userRoute from './routes/userRoute.js'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
+import cors from 'cors'
 dotenv.config()
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors({
+    origin: 'http://localhost:5173', // Allow only this origin to access the server
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+}));
 
 mongoose.connect(process.env.MONGO).then(() => {
     console.log("connected to mongodb");

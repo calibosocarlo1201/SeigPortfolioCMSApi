@@ -10,6 +10,14 @@ const experienceSchema = new mongoose.Schema({
     skills: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Skills'
+    },
+    startDate: {
+        type: Date,
+        required: true
+    },
+    endDate: {
+        type: Date,
+        required: false
     }
 }, {timestamps: true,})
 
