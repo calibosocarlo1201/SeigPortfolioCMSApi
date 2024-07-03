@@ -2,6 +2,9 @@ import mongoose from 'mongoose';
 import Project from '../models/project.js'
 
 export const createProject = async (req, res) => {
+
+    console.log(req);
+
     try {
 
         const project = new Project(req.body);

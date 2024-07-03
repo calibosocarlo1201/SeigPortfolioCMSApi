@@ -13,10 +13,12 @@ dotenv.config()
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
+app.use(cookieParser());
+
 app.use(cors({
-    origin: 'http://localhost:5173', // Allow only this origin to access the server
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+    origin: 'http://localhost:5173', // frontend domain
+    credentials: true
 }));
 
 mongoose.connect(process.env.MONGO).then(() => {
@@ -24,9 +26,6 @@ mongoose.connect(process.env.MONGO).then(() => {
 }).catch((err) => {
     console.log(err)
 });
-
-app.use(express.json());
-app.use(cookieParser());
 
 app.listen(3000, () => {
     console.log("Server is running on port 3000!!");

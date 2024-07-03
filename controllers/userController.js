@@ -33,12 +33,10 @@ export const authUser = async (req, res) => {
 
     const { username, password} = req.body;
     const user = await User.findOne({username});
-
-    const { password: pass, ...userResponse} = user
-
+    
     if(user && (await user.matchPassword(password))){
+        const { password: _, ...userResponse} = user.toObject();
         generateToken(res, user._id);
-
         res.status(200).json(userResponse);
     }else{
         res.status(401).json({message: "Invalid Credentials"});
